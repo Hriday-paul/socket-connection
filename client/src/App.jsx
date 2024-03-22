@@ -16,7 +16,7 @@ function App() {
   const myId = 'myId123'
   const fid = 'hriday1';
 
-  socket.on(fid, (msg) => {
+  socket.on(myId, (msg) => {
     console.log(msg);
   })
 
