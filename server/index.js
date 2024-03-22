@@ -17,17 +17,18 @@ const io = serverio(server, {
 });
 
 io.on('connection', socket => {
-    console.log('connected');
-    socket.on('disconnect', () => {
+    console.log('server socket is connected');
+    socket.on('server socket is disconnect', () => {
         console.log('disconnect');
     });
 
     //receive message 
     socket.on('sendMessage', async (messageInfo, recever) => {
-        console.log(messageInfo, recever);
+        // console.log(messageInfo, recever);
+        
         // send message by uniq id
         await socket.broadcast.emit(recever, messageInfo);
-        
+
     });
 });
 
