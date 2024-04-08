@@ -12,10 +12,11 @@ function App() {
     });
   }, [])
 
-  // receive message depand on your uniq id
-  const myId = 'myId123'
-  const fid = 'hriday1';
+  // when I try to send a message, I need my friend unique id and when I try to receive a message I need my unique id
+  const myId = 'myId123' // suppose, this is my id
+  const fid = 'frId123'; // suppose, this is my friend id
 
+  // receive a message when, you got a new message from socket server
   socket.on(myId, (msg) => {
     console.log(msg);
   })
@@ -23,7 +24,7 @@ function App() {
   const sendMessage = (e) => {
     e.preventDefault();
     const message = e.target.txt.value;
-    // send a message to server
+    // send a message to server with friendId
     socket.emit('sendMessage', message, fid);
   }
 
